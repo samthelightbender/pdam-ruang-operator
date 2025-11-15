@@ -1,5 +1,5 @@
 /**
- * @brief KONSTANTA UNTUK PH
+ * KONSTANTA UNTUK PH
  *
  * Konstanta ini mendefinisikan nilai offset kalibrasi untuk sensor pH.
  * Nilai ini akan ditambahkan ke hasil perhitungan pH untuk menyesuaikan pembacaan sensor agar lebih akurat.
@@ -7,7 +7,7 @@
 #define PH_CALIBRATION_VALUE 0.0 // Offset kalibrasi untuk pH 7.
 
 /**
- * @brief Membaca dan Mengkonversi Nilai dari Sensor pH
+ * FUNGSI PEMBACAAN PH
  *
  * Fungsi ini membaca nilai ADC mentah dari sensor pH yang terhubung ke ADS1115,
  * kemudian mengkonversinya menjadi tegangan, dan akhirnya menghitung nilai pH.

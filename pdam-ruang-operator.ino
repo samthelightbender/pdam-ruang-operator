@@ -1,8 +1,10 @@
 #include <Wire.h>
 #include <Adafruit_ADS1X15.h>
+#include "data.h"
 
 /**
- * @brief KONSTANTA ADS1115
+ * KONSTANTA ADS1115
+ *
  * Ini adalah konstanta utama yang digunakan untuk konfigurasi dan perhitungan dengan sensor ADC ADS1115.
  */
 #define FSR 4.096             // FSR (Full Scale Range) adalah rentang tegangan input maksimum yang dapat diukur oleh ADS1115. Untuk GAIN_ONE, FSR adalah ±4.096V.
@@ -12,37 +14,16 @@
 #define FLOW_CHANNEL 2        // Channel untuk sensor flowmeter
 #define PRESSURE_CHANNEL 3    // Channel untuk sensor tekanan
 
-struct FlowMeterData
-{
-  int16_t raw;
-  float voltage;
-  float current_mA;
-  float flow_rate_LM;
-};
-
-struct PHData
-{
-  int16_t raw;
-  float voltage;
-  float ph_value;
-};
-
-struct NTUData
-{
-  int16_t raw;
-  float voltage;
-  float ntu_value;
-};
-
-struct PressureData
-{
-  int16_t raw;
-  float voltage;
-  float current_mA;
-  float pressure_bar;
-};
-
+/**
+ * OBYEK GLOBAL
+ */
 Adafruit_ADS1115 ads;
+
+/**
+ * STRUKTUR DATA
+ *
+ * Lihat "data.h" untuk mengubah strukturnya
+ */
 FlowMeterData flowMeterData;
 PHData phData;
 NTUData ntuData;
@@ -83,7 +64,8 @@ void loop()
 }
 
 /**
- * @brief Fungsi untuk memetakan nilai float secara linier
+ * FUNGSI PEMETAAN LINIER UNTUK FLOAT
+ * 
  * Fungsi ini sama dengan map() built-in Arduino, namun mendukung tipe data float,
  * yang penting untuk konversi presisi tinggi (mA ke L/M).
  */
@@ -93,7 +75,8 @@ float map_float(float x, float in_min, float in_max, float out_min, float out_ma
 }
 
 /**
- * @brief FUNGSI MENAMPILKAN DATA SENSOR
+ * FUNGSI MENAMPILKAN DATA SENSOR
+ * 
  * Fungsi ini berfungsi untuk menampilkan data sensor ke
  * Serial Monitor
  */
@@ -108,6 +91,7 @@ void printSensorsData()
   Serial.print("mA, Flow Rate: ");
   Serial.print(flowMeterData.flow_rate_LM, 2); // 2 desimal
   Serial.println(" L/min");
+  
   Serial.print("pH Raw: ");
   Serial.print(phData.raw);
   Serial.print(", Voltage: ");

@@ -1,5 +1,6 @@
 /**
- * @brief KONSTANTA UNTUK FLOWMETER
+ * KONSTANTA UNTUK FLOWMETER
+ * 
  * Ini adalah konstanta yang spesifik untuk perhitungan flowmeter,
  * yang mungkin akan digunakan di masa depan untuk modularitas atau
  * jika ada beberapa flowmeter dengan konfigurasi berbeda.
@@ -13,7 +14,8 @@
 #define FLOW_Q_MAX 500.0   // Laju Aliran Maksimum (L/M) untuk flowmeter
 
 /**
- * @brief FUNGSI PEMBACAAN FLOWMETER
+ * FUNGSI PEMBACAAN FLOWMETER
+ * 
  * Membaca data dari sensor flowmeter yang terhubung ke ADS1115.
  * Fungsi ini melakukan konversi dari nilai ADC mentah menjadi tegangan,
  * kemudian ke arus (mA), dan akhirnya ke laju aliran (L/M).
